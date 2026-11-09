@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insight Hub - หน้าแรก</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #090d16;
+            --card: rgba(18,24,38,0.85);
+            --primary: #818cf8;
+            --secondary: #c084fc;
+            --border: rgba(99,102,241,0.3);
+            --gradient: linear-gradient(135deg,#6366f1,#a855f7,#ec4899);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: var(--bg);
+            color: white;
+        }
+
+        header {
+            background: rgba(2,6,23,0.95);
+            border-bottom: 1px solid #252b40;
+            padding: 18px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #cbd5e1;
+            padding: 9px 16px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 45px 20px;
+        }
+
+        .hero {
+            min-height: 400px;
+            padding: 55px 40px;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            background:
+                linear-gradient(90deg,rgba(9,13,22,.97),rgba(9,13,22,.65)),
+                url('images/156.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag {
+            display: inline-block;
+            width: fit-content;
+            padding: 7px 15px;
+            border-radius: 30px;
+            color: #c4b5fd;
+            background: rgba(99,102,241,.2);
+            border: 1px solid var(--border);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(30px,5vw,48px);
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .main-button {
+            display: inline-block;
+            width: fit-content;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .main-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 25px rgba(168,85,247,.4);
+        }
+
+        .section-title {
+            font-size: 25px;
+            margin: 45px 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99,102,241,.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .info {
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+            font-size: 13px;
+        }
+
+        @media(max-width:600px) {
+            header { padding: 15px; }
+            .navbar { justify-content: center; }
+            nav { justify-content: center; }
+            nav a { padding: 8px 10px; font-size: 13px; }
+            .hero { padding: 35px 22px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-microchip"></i>
+            AI <span>INSIGHT HUB</span>
+        </div>
+
+        <nav>
+            <a href="index.html" class="active">หน้าแรก</a>
+            <a href="index2.html">หน้า 2</a>
+            <a href="index3.html">หน้า 3</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- ส่วนแนะนำเว็บไซต์ -->
+    <section class="hero">
+        <span class="tag">
+            <i class="fa-solid fa-sparkles"></i>
+            AI APPLICATIONS & INNOVATIONS
+        </span>
+
+        <h1>
+            ก้าวสู่โลกอนาคต<br>
+            <span class="gradient-text">ด้วยเทคโนโลยี AI</span>
+        </h1>
+
+        <p>
+            เรียนรู้การประยุกต์ใช้ปัญญาประดิษฐ์ (Artificial Intelligence)
+            เทคโนโลยีที่เข้ามามีบทบาทสำคัญในชีวิตประจำวัน
+            การทำงาน การศึกษา ธุรกิจ และอุตสาหกรรม
+            พร้อมเปิดมุมมองใหม่ให้กับโลกดิจิทัล
+        </p>
+
+        <a href="index2.html" class="main-button">
+            เริ่มเรียนรู้เพิ่มเติม
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <!-- ความหมายของ AI -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-brain gradient-text"></i>
+        AI คืออะไร?
+    </h2>
+
+    <div class="info">
+        <p style="color:#cbd5e1;line-height:2;">
+            AI หรือ Artificial Intelligence คือ
+            เทคโนโลยีปัญญาประดิษฐ์ที่ทำให้คอมพิวเตอร์
+            สามารถเรียนรู้ วิเคราะห์ข้อมูล ประมวลผล
+            และช่วยทำงานบางอย่างที่ต้องใช้ความสามารถทางสติปัญญาของมนุษย์
+            เช่น การจดจำภาพ การแปลภาษา และการสร้างเนื้อหา
+        </p>
+    </div>
+
+    <!-- หมวดหมู่ AI -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-layer-group gradient-text"></i>
+        การประยุกต์ใช้ AI ในด้านต่าง ๆ
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="images/155.jpg" alt="AI การแพทย์">
+            <div class="card-content">
+                <h3>🏥 การแพทย์และสุขภาพ</h3>
+                <p>ช่วยวิเคราะห์ข้อมูลทางการแพทย์ ตรวจสอบภาพถ่ายทางรังสี และสนับสนุนการวินิจฉัยโรค</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/166.jpg" alt="AI ธุรกิจ">
+            <div class="card-content">
+                <h3>📊 ธุรกิจและการเงิน</h3>
+                <p>ช่วยวิเคราะห์ข้อมูล วางแผนการตลาด และตรวจสอบธุรกรรมที่ผิดปกติ</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/144.jpg" alt="AI การศึกษา">
+            <div class="card-content">
+                <h3>🎓 การศึกษาและการเรียนรู้</h3>
+                <p>ช่วยสรุปบทเรียน อธิบายเนื้อหา และสนับสนุนการเรียนรู้รายบุคคล</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/133.jpg" alt="AI สร้างสรรค์">
+            <div class="card-content">
+                <h3>🎨 ศิลปะและครีเอทีฟ</h3>
+                <p>ช่วยสร้างภาพ วิดีโอ เพลง และสื่อสร้างสรรค์ในรูปแบบใหม่</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/122.jpg" alt="AI หุ่นยนต์">
+            <div class="card-content">
+                <h3>🤖 หุ่นยนต์และอุตสาหกรรม</h3>
+                <p>ช่วยควบคุมหุ่นยนต์ ตรวจสอบคุณภาพสินค้า และเพิ่มประสิทธิภาพการผลิต</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ประโยชน์ -->
+    <h2 class="section-title">
+        <i class="fa-solid fa-lightbulb gradient-text"></i>
+        ประโยชน์ของ AI
+    </h2>
+
+    <div class="grid">
+        <div class="info">
+            <i class="fa-solid fa-clock gradient-text" style="font-size:30px;"></i>
+            <h3 style="margin:12px 0;">ประหยัดเวลา</h3>
+            <p style="color:#94a3b8;">ช่วยลดขั้นตอนการทำงานและประมวลผลข้อมูลได้รวดเร็ว</p>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-chart-line gradient-text" style="font-size:30px;"></i>
+            <h3 style="margin:12px 0;">เพิ่มประสิทธิภาพ</h3>
+            <p style="color:#94a3b8;">ช่วยวิเคราะห์ข้อมูลและสนับสนุนการตัดสินใจ</p>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-lightbulb gradient-text" style="font-size:30px;"></i>
+            <h3 style="margin:12px 0;">สร้างไอเดียใหม่</h3>
+            <p style="color:#94a3b8;">ช่วยต่อยอดความคิดและสร้างสรรค์ผลงานรูปแบบใหม่</p>
+        </div>
+    </div>
+
+    <!-- ปุ่มไปหน้าถัดไป -->
+    <div style="text-align:center;margin-top:45px;">
+        <a href="index2.html" class="main-button">
+            ไปยังหน้า 2
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 AI Insight Hub | เว็บไซต์เรียนรู้การประยุกต์ใช้ AI
+</footer>
+
+</body>
+</html>
+
